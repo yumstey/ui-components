@@ -1,7 +1,13 @@
-import { BrowserRouter, Routes, Route, NavLink, Outlet } from "react-router-dom"
-import { Box, Flex, Heading, Button } from "@chakra-ui/react"
-import { Provider } from "./app/components/ui/provider"
-import { ListDemo } from "./components/ui"
+import { Box, Button, Flex, Heading } from "@chakra-ui/react";
+import {
+  BrowserRouter,
+  NavLink,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
+import { Provider } from "./app/providers/provider";
+import { ListDemo, OrgChart } from "./components";
 
 function Layout() {
   return (
@@ -16,18 +22,20 @@ function Layout() {
         borderBottom="1px solid"
         borderColor="gray.200"
       >
-        <Heading size="md" color={'black'}>Custom Component</Heading>
+        <Heading size="md" color={"black"}>
+          Custom Component
+        </Heading>
 
         <Flex gap="3">
-          <Button asChild colorPalette="blue" variant="solid">
+          <Button asChild colorPalette="blue" rounded='md' variant="solid">
             <NavLink to="/">Home</NavLink>
           </Button>
 
-          <Button asChild colorPalette="green" variant="solid">
+          <Button asChild colorPalette="green" rounded='md' variant="solid">
             <NavLink to="/list">List</NavLink>
           </Button>
 
-          <Button asChild colorPalette="purple" variant="solid">
+          <Button asChild colorPalette="yellow" rounded='md' variant="solid">
             <NavLink to="/schema">Schema</NavLink>
           </Button>
         </Flex>
@@ -37,36 +45,20 @@ function Layout() {
         <Outlet />
       </Box>
     </Box>
-  )
+  );
 }
 
 function HomePage() {
   return (
-    <Box
-      p="6"
-      bg="white"
-      borderRadius="xl"
-      shadow="sm"
-    >
-      <Heading size="lg" color={'black'}>Home Page</Heading>
+    <Box p="6" bg="white" borderRadius="xl" shadow="sm">
+      <Heading size="lg" color={"black"}>
+        Home Page
+      </Heading>
     </Box>
-  )
+  );
 }
 
 
-
-function SchemaPage() {
-  return (
-    <Box
-      p="6"
-      bg="white"
-      borderRadius="xl"
-      shadow="sm"
-    >
-      <Heading size="lg" color={'black'}>Schema Page</Heading>
-    </Box>
-  )
-}
 
 function App() {
   return (
@@ -76,12 +68,12 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="list" element={<ListDemo />} />
-            <Route path="schema" element={<SchemaPage />} />
+            <Route path="schema" element={<OrgChart />} />
           </Route>
         </Routes>
       </BrowserRouter>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;
