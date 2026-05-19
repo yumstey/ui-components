@@ -8,15 +8,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Handle, Position } from "@xyflow/react";
-
-interface DepartmentData {
-  name: string;
-  type: string;
-  staffCount: number;
-  avatars: string[];
-  extraCount: number;
-  record: Record<string, unknown>;
-}
+import { type DepartmentData } from "./types";
 
 const AVATAR_BG_COLORS = ["blue.400", "teal.400", "purple.400", "orange.400"];
 
@@ -29,9 +21,7 @@ export const DepartmentCard = ({ data }: { data: DepartmentData }) => {
       borderRadius="3xl"
       p={4}
       minW="258px"
-      boxShadow="0 2px 12px rgba(0,0,0,0.06)"
       position="relative"
-      padding="16px"
     >
       <Handle
         type="target"
@@ -45,7 +35,7 @@ export const DepartmentCard = ({ data }: { data: DepartmentData }) => {
       />
       <Flex align="flex-start" gap="8px">
         <Text fontSize="lg">
-          <Icon name="ConvertShape2" size={'md'} color="#223b77" />
+          <Icon name="ConvertShape2" size={"md"} color="#223b77" />
         </Text>
         <Flex gap="4px" flexDirection="column">
           <Text fontWeight="medium" fontSize="xs" color="#000">
@@ -71,7 +61,7 @@ export const DepartmentCard = ({ data }: { data: DepartmentData }) => {
                   bg={AVATAR_BG_COLORS[i % AVATAR_BG_COLORS.length]}
                   color="white"
                   variant="solid"
-                  border = 'none'
+                  border="none"
                 >
                   <Avatar.Fallback
                     name={initials}
@@ -87,7 +77,13 @@ export const DepartmentCard = ({ data }: { data: DepartmentData }) => {
               </Text>
             )}
           </Flex>
-          <IconButton size="xs" color='#223b77' borderColor='#223b77' variant="outline" rounded="full">
+          <IconButton
+            size="xs"
+            color="#223b77"
+            borderColor="#223b77"
+            variant="outline"
+            rounded="full"
+          >
             <Icon name="Trade" />
           </IconButton>
         </Flex>
@@ -95,7 +91,7 @@ export const DepartmentCard = ({ data }: { data: DepartmentData }) => {
       <Handle
         type="source"
         position={Position.Bottom}
-        style={{ opacity: '0'}}
+        style={{ opacity: "0" }}
       />
     </Box>
   );

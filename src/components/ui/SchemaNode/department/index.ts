@@ -1,0 +1,1 @@
+export { DepartmentOrgChart } from "./Department";

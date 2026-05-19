@@ -7,7 +7,7 @@ import {
   Routes,
 } from "react-router-dom";
 import { Provider } from "./app/providers/provider";
-import { ListDemo, OrgChart } from "./components";
+import { ListDemo, DepartmentOrgChart,  EmployeeOrgChart} from "./components";
 
 function Layout() {
   return (
@@ -25,18 +25,12 @@ function Layout() {
         <Heading size="md" color={"black"}>
           Custom Component
         </Heading>
-
         <Flex gap="3">
           <Button asChild colorPalette="blue" rounded='md' variant="solid">
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/schema">Schema 1</NavLink>
           </Button>
-
-          <Button asChild colorPalette="green" rounded='md' variant="solid">
-            <NavLink to="/list">List</NavLink>
-          </Button>
-
-          <Button asChild colorPalette="yellow" rounded='md' variant="solid">
-            <NavLink to="/schema">Schema</NavLink>
+          <Button asChild colorPalette="blue" rounded='md' variant="solid">
+            <NavLink to="/employee">Schema 2</NavLink>
           </Button>
         </Flex>
       </Flex>
@@ -44,16 +38,6 @@ function Layout() {
       <Box p="6">
         <Outlet />
       </Box>
-    </Box>
-  );
-}
-
-function HomePage() {
-  return (
-    <Box p="6" bg="white" borderRadius="xl" shadow="sm">
-      <Heading size="lg" color={"black"}>
-        Home Page
-      </Heading>
     </Box>
   );
 }
@@ -66,9 +50,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="list" element={<ListDemo />} />
-            <Route path="schema" element={<OrgChart />} />
+            <Route index path="/" element={<ListDemo />} />
+            <Route path="schema" element={<DepartmentOrgChart />} />
+            <Route path="employee" element={<EmployeeOrgChart />} />
           </Route>
         </Routes>
       </BrowserRouter>
